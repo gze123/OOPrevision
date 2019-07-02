@@ -19,11 +19,11 @@ public class Person {
         return "Full name:" + lastName +" "+ firstName ;
     }
 
-    public String getFname() {
+    public String getFirstNamename() {
         return firstName;
     }
 
-    public void setFname(String firstName) {
+    public void setFirstNamename(String firstName) {
         this.firstName = firstName;
     }
 
@@ -39,18 +39,18 @@ public class Person {
         return age;
     }
 
-    public void setDob(Date dob) throws ParseException {
-        Date d  = dob;
-        Calendar c = Calendar.getInstance();
-        c.setTime(d);
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH) + 1;
-        int date = c.get(Calendar.DATE);
-        LocalDate l1 = LocalDate.of(year, month, date);
-        LocalDate now1 = LocalDate.now();
-        System.out.println(l1);
-        Period diff1 = Period.between(l1, now1);
-        this.age = diff1.getYears();
+    public void setDob(Date dob) throws ParseException { this.age = age;
+//        Date d  = dob;
+//        Calendar c = Calendar.getInstance();
+//        c.setTime(d);
+//        int year = c.get(Calendar.YEAR);
+//        int month = c.get(Calendar.MONTH) + 1;
+//        int date = c.get(Calendar.DATE);
+//        LocalDate l1 = LocalDate.of(year, month, date);
+//        LocalDate now1 = LocalDate.now();
+//        System.out.println(l1);
+//        Period diff1 = Period.between(l1, now1);
+//        this.age = diff1.getYears();
 
     }
     public String getGender(){
@@ -63,7 +63,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Name: "+ getFname()+"\t "+getGender()+"\t\t "+"Age: "+getDob();
+        return "Name: "+ getFirstNamename()+"\t "+getGender()+"\t\t "+"Age: "+getDob();
     }
 
 
