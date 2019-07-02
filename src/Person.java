@@ -19,15 +19,15 @@ public class Person {
         return "Full name:" + lastName +" "+ firstName ;
     }
 
-    public String getFirstNamename() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstNamename(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLname(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -39,18 +39,20 @@ public class Person {
         return age;
     }
 
-    public void setDob(Date dob) throws ParseException { this.age = age;
-//        Date d  = dob;
-//        Calendar c = Calendar.getInstance();
-//        c.setTime(d);
-//        int year = c.get(Calendar.YEAR);
-//        int month = c.get(Calendar.MONTH) + 1;
-//        int date = c.get(Calendar.DATE);
-//        LocalDate l1 = LocalDate.of(year, month, date);
-//        LocalDate now1 = LocalDate.now();
-//        System.out.println(l1);
-//        Period diff1 = Period.between(l1, now1);
-//        this.age = diff1.getYears();
+    public void setDob(GregorianCalendar dob){
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(d);
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int date = c.get(Calendar.DATE);
+        LocalDate l1 = LocalDate.of(year, month, date);
+        LocalDate now = LocalDate.now();
+        System.out.println(d);
+        System.out.println(l1);
+        Period diff = Period.between(l1, now);
+        this.age = diff.getYears();
+//        this.age = age;
 
     }
     public String getGender(){
@@ -63,7 +65,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Name: "+ getFirstNamename()+"\t "+getGender()+"\t\t "+"Age: "+getDob();
+        return "Name: "+ getFirstName()+"\t "+getGender()+"\t\t "+"Age: "+getDob();
     }
 
 

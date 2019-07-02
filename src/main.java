@@ -11,8 +11,8 @@ public class main {
 //        ali.setGender("male");
 //        System.out.println(ali.getFullName());
 //        ali.setDob("23/01/1998");
-        ali.setDob(new Date(23/12/1998));
-        System.out.println(ali.getDob());
+        ali.setDob(new GregorianCalendar(1998,12,23));
+//        System.out.println(ali.getDob());
         List<Person> personList = new ArrayList<Person>();
         System.out.println();
         generatePerson(10,personList);
@@ -66,13 +66,13 @@ public class main {
                 fname = fname + alphabet.charAt(r.nextInt(alphabet.length()));
 
             }
-            a.setFname(fname);
+            a.setFirstName(fname);
             String lname = "";
             for (int k = 0; k < n; k++) {
                 lname = lname + alphabet.charAt(r.nextInt(alphabet.length()));
 
             }
-            a.setLname(lname);
+            a.setLastName(lname);
             String sgender;
             int gender = r.nextInt(2) + 1;
             if (gender > 1)
