@@ -1,15 +1,17 @@
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.*;
 
 
 public class main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws ParseException {
         Person ali = new Person();
 //        ali.setFname("Ali");
 //        ali.setLname("Muhammad");
 //        ali.setGender("male");
 //        System.out.println(ali.getFullName());
 //        ali.setDob("23/01/1998");
+        ali.setDob(new Date(23/12/1998));
         System.out.println(ali.getDob());
         List<Person> personList = new ArrayList<Person>();
         System.out.println();
@@ -21,9 +23,7 @@ public class main {
         List<Staff> staffList = new ArrayList<Staff>();
         List<Staff> it = new ArrayList<Staff>();
         List<Staff> nonit = new ArrayList<Staff>();
-//        String str1 ="jhelloit";
-//        boolean pattern = str1.matches("(.*)it(.*)");
-//        System.out.println(pattern);
+
         Staff a = new Staff("it", BigDecimal.valueOf(2300),"leader",true);
         Staff b = new Staff("hit", BigDecimal.valueOf(2300),"leader",false);
         Staff c = new Staff("hi", BigDecimal.valueOf(2300),"employee",false);
@@ -108,11 +108,7 @@ public class main {
             if(p.getDob()<18 || p.getDob()>50)
                 itr.remove();
         }
-//        for(Person p:list){
-//            int age = p.getDob();
-//            if(age<18 || age>50)
-//                list.remove(p);
-//        }
+
         System.out.println("\nList after deleted invalid age:");
         for(Person p:list){
             System.out.println(p.toString());

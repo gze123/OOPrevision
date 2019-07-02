@@ -1,3 +1,4 @@
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,25 +10,25 @@ import java.util.*;
 
 public class Person {
 
-    public static String dob;
-    public String fname,lname,gender;
-    public int age;
+    private Date dob;
+    private String firstName,lastName,gender;
+    private int age;
     public Person(){}
 
     public String getFullName(){
-        return "Full name:" + lname +" "+ fname ;
+        return "Full name:" + lastName +" "+ firstName ;
     }
 
     public String getFname() {
-        return fname;
+        return firstName;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFname(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLname(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setAge(int age) {
@@ -38,9 +39,8 @@ public class Person {
         return age;
     }
 
-    public void setDob(String dob) throws ParseException {
-        SimpleDateFormat sdf  =  new SimpleDateFormat("dd/MM/yyyy");
-        Date d  = sdf.parse(dob);
+    public void setDob(Date dob) throws ParseException {
+        Date d  = dob;
         Calendar c = Calendar.getInstance();
         c.setTime(d);
         int year = c.get(Calendar.YEAR);
@@ -48,6 +48,7 @@ public class Person {
         int date = c.get(Calendar.DATE);
         LocalDate l1 = LocalDate.of(year, month, date);
         LocalDate now1 = LocalDate.now();
+        System.out.println(l1);
         Period diff1 = Period.between(l1, now1);
         this.age = diff1.getYears();
 
@@ -64,4 +65,6 @@ public class Person {
     public String toString() {
         return "Name: "+ getFname()+"\t "+getGender()+"\t\t "+"Age: "+getDob();
     }
+
+
 }
