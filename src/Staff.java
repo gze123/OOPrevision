@@ -1,29 +1,30 @@
 import java.math.BigDecimal;
 
 public class Staff extends Person  {
-    private String dpt,title;
+    private String department,title;
     private BigDecimal salary;
-    private boolean exec;
-    private int al;
+    private boolean executive;
+    private int annualLeave;
 
-    public Staff(String dpt,BigDecimal salary, String title,boolean exec){
-        this.dpt = dpt;
+    public Staff(String department,BigDecimal salary, String title,boolean executive){
+        this.department = department;
         this.salary = salary;
         this.title = title;
-        this.exec = exec;
-        if(exec== true)
-            this.al = 21;
-        else
-            this.al = 14;
+        this.executive = executive;
+        if(executive) {
+            this.annualLeave = 21;
+        }else{
+            this.annualLeave = 14;
+        }
     }
 
 
-    public String getDpt() {
-        return dpt;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setDpt(String dpt) {
-        this.dpt = dpt;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public String getTitle() {
@@ -34,23 +35,23 @@ public class Staff extends Person  {
         this.title = title;
     }
 
-    public int getAl() {
-        return al;
+    public int getAnnualLeave() {
+        return annualLeave;
     }
 
     @Override
     public String toString() {
         return "Staff{" +
-                "dpt='" + dpt + '\'' +
+                "department='" + department + '\'' +
                 ", title='" + title + '\'' +
                 ", salary=" + salary +
-                ", exec=" + exec +
-                ", al=" + al +
+                ", executive=" + executive +
+                ", annualLeave=" + annualLeave +
                 '}';
     }
 
-    public void setAl(int al) {
-        this.al = al;
+    public void setAnnualLeave(int annualLeave) {
+        this.annualLeave = annualLeave;
     }
 
     public BigDecimal getSalary() {
@@ -62,11 +63,11 @@ public class Staff extends Person  {
 
     }
 
-    public boolean isExec() {
-        return exec;
+    public boolean isExecutive() {
+        return executive;
     }
 
-    public void setExec(boolean exec) {
-        this.exec = exec;
+    public void setExecutive(boolean exec) {
+        this.executive = executive;
     }
 }

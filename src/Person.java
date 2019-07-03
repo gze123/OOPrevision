@@ -39,16 +39,15 @@ public class Person {
         return age;
     }
 
-    public void setDob(GregorianCalendar dob){
-
+    public void setDob(Date dob){
+        System.out.println(dob);
         Calendar c = Calendar.getInstance();
-        c.setTime(d);
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH) + 1;
         int date = c.get(Calendar.DATE);
         LocalDate l1 = LocalDate.of(year, month, date);
         LocalDate now = LocalDate.now();
-        System.out.println(d);
+
         System.out.println(l1);
         Period diff = Period.between(l1, now);
         this.age = diff.getYears();

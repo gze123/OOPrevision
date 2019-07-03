@@ -11,7 +11,8 @@ public class main {
 //        ali.setGender("male");
 //        System.out.println(ali.getFullName());
 //        ali.setDob("23/01/1998");
-        ali.setDob(new GregorianCalendar(1998,12,23));
+
+        ali.setDob(new Date(1998,12,23));
 //        System.out.println(ali.getDob());
         List<Person> personList = new ArrayList<Person>();
         System.out.println();
@@ -28,11 +29,13 @@ public class main {
         Staff b = new Staff("hit", BigDecimal.valueOf(2300),"leader",false);
         Staff c = new Staff("hi", BigDecimal.valueOf(2300),"employee",false);
         Staff d = new Staff("ht", BigDecimal.valueOf(2300),"leader",true);
+        Staff e = new Staff("hiT", BigDecimal.valueOf(2300),"employee",false);
 
         staffList.add(a);
         staffList.add(b);
         staffList.add(c);
         staffList.add(d);
+        staffList.add(e);
 
         Employee emp = new Employee(staffList);
         List<Staff> stf = emp.getTotalStaff();
@@ -115,20 +118,19 @@ public class main {
         }
     }
 
-    public static void diffIT(List<Staff> all,List<Staff>listIT,List<Staff> listNIT){
-        String it = "it";
+    public static void diffIT(List<Staff> all, List<Staff>listItPerson, List<Staff> listNonItPerson){
+        String pattern = "it";
         Iterator<Staff> itr  = all.iterator();
         while(itr.hasNext()){
             Staff s = itr.next();
-            if(s.getDpt().matches("(.*)it(.*)")){
-                listIT.add(s);
+            if(s.getDepartment().matches("(?i:.*it.*)")){
+                listItPerson.add(s);
             }
-            else
-                listNIT.add(s);
+            else {
+                listNonItPerson.add(s);
+            }
         }
         System.out.println("\nIT Staff:");
-        for(Staff s:listIT){
-            System.out.println(s.toString());
-        }
+        listItPerson.forEach(listIt-> System.out.println(listIt.toString()));
     }
 }
